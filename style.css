@@ -87,51 +87,47 @@ body {
 
 .volume-box { display: flex; align-items: center; gap: 10px; justify-content: center; opacity: 0.7; }
 
-/* --- Ultra Responsive Mobile Fix --- */
-/* --- Ultra Compact Mobile Player --- */
-/* --- Final Compact Mobile Fix --- */
-/* --- Final Compact & Bottom Fixed Mobile Fix --- */
-/* --- Final Compact Mobile Fix (No Gaps) --- */
+
 @media screen and (max-width: 768px) {
     body, html {
         height: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
-        overflow: hidden !important; /* পুরো স্ক্রিন স্ক্রল হবে না */
+        overflow: hidden !important; 
     }
 
     .container {
         display: flex !important;
         flex-direction: column !important;
         height: 100vh !important;
-        justify-content: flex-start !important; /* সবকিছু ওপর থেকে শুরু হবে */
+        justify-content: flex-start !important; 
     }
 
-    /* ওপরের স্টেশন লিস্ট সেকশন */
+   
     .sidebar {
         width: 100% !important;
-        flex: 1 1 auto !important; /* এটি বাকি খালি জায়গা দখল করবে */
-        overflow-y: auto !important; /* শুধু লিস্ট স্ক্রল হবে */
-        min-height: 0; /* ফ্লেক্সবক্স বাগ ফিক্স */
+        flex: 1 1 auto !important; 
+        overflow-y: auto !important; 
+        min-height: 0; 
         background: #1a1a1a;
     }
 
-    /* নিচের প্লেয়ার এরিয়া (প্লেয়ার কার্ড + ফিল্টার) */
+    
     .content-area {
         width: 100% !important;
         background: #111;
-        padding: 0 !important; /* কোনো গ্যাপ থাকবে না */
+        padding: 0 !important; 
         margin: 0 !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        flex-shrink: 0 !important; /* এটি ছোট হবে না */
+        flex-shrink: 0 !important; 
     }
 
-    /* ক্যাটাগরি ফিল্টার - কার্ডের ঠিক ওপরে লেগে থাকবে */
+    
     .filter-wrapper {
         width: 100% !important;
-        padding: 8px 0 !important; /* সামান্য প্যাডিং */
+        padding: 8px 0 !important; 
         margin: 0 !important;
         background: #111;
         text-align: center;
@@ -145,19 +141,19 @@ body {
         margin: 0 auto !important;
     }
 
-    /* প্লেয়ার কার্ড - একদম কমপ্যাক্ট */
+    
     .player-card {
         width: 100% !important;
         max-width: 100% !important;
         padding: 8px 10px !important; 
         margin: 0 !important;
         background: #181818 !important;
-        border-radius: 15px 15px 0 0 !important; /* শুধু ওপরে গোল */
+        border-radius: 15px 15px 0 0 !important; 
         border: none;
         border-top: 2px solid var(--gold);
     }
 
-    /* ভেতরের এলিমেন্টগুলোর স্পেসিং কমানো */
+    
     .wave-visual { height: 12px !important; margin-bottom: 2px !important; }
     #currentName { font-size: 0.85rem !important; margin: 0 !important; }
     #currentCategory { font-size: 0.6rem !important; margin-bottom: 5px !important; }
