@@ -3,55 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online All Time Quran </title>
+    
+    <title>All Time Quran By HAMZA</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <div class="container">
         <aside class="sidebar">
-           
-            <div class="logo">
-    <img src="https://www.shutterstock.com/image-vector/al-quran-kareem-islamic-calligraphy-600nw-2042847887.jpg" alt="All Time Quran Logo" class="logo-image">
-    <h1>All Time Quran By HAMZA
-    </h1>
-        </div>
+            <div class="logo-area">
+                <img src="https://www.shutterstock.com/image-vector/al-quran-kareem-islamic-calligraphy-600nw-2042847887.jpg" alt="Logo" class="top-logo">
+                <h2 class="title">All Time Quran By <span>HAMZA</span></h2>
+            </div>
 
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="Search station or reciter...">
             </div>
+
             <div id="stationList" class="station-list">
                 </div>
         </aside>
 
-        <main class="main-player">
-            <div class="player-card">
-                <div class="visualizer">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
-                <h2 id="currentName">Select a Station</h2>
-                <p id="currentCategory">To start listening</p>
-                
-                <div class="controls">
-                    <button id="playPauseBtn" class="play-btn">
-                        <i class="fa-solid fa-play"></i>
-                    </button>
-                </div>
+        <main class="content-area">
+            <div class="filter-wrapper">
+                <label>Category Filter</label>
+                <select id="categoryFilter">
+                    <option value="all">All</option>
+                    <option value="Readers">Reciters</option>
+                    <option value="Tafseer">Translations</option>
+                    <option value="Others">Stories</option>
+                </select>
+            </div>
 
-                <div class="volume-container">
-                    <i class="fa-solid fa-volume-high"></i>
+            <div class="player-card">
+                <div class="wave-visual">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <h1 id="currentName">Select a Station</h1>
+                <p id="currentCategory">Others</p>
+
+                <button id="playPauseBtn" class="play-btn">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+
+                <div class="volume-box">
+                    <i class="fa-solid fa-volume-low"></i>
                     <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
                 </div>
-                
-                <audio id="audioPlayer"></audio>
             </div>
         </main>
     </div>
 
+    <audio id="audioPlayer"></audio>
     <script src="script.js"></script>
 </body>
 </html>
