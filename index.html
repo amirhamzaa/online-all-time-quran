@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online All Time Quran </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+           
+            <div class="logo">
+    <img src="https://www.shutterstock.com/image-vector/al-quran-kareem-islamic-calligraphy-600nw-2042847887.jpg" alt="All Time Quran Logo" class="logo-image">
+    <h1>All Time Quran By HAMZA
+    </h1>
+        </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search station or reciter...">
+            </div>
+            <div id="stationList" class="station-list">
+                </div>
+        </aside>
+
+        <main class="main-player">
+            <div class="player-card">
+                <div class="visualizer">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <h2 id="currentName">Select a Station</h2>
+                <p id="currentCategory">To start listening</p>
+                
+                <div class="controls">
+                    <button id="playPauseBtn" class="play-btn">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                </div>
+
+                <div class="volume-container">
+                    <i class="fa-solid fa-volume-high"></i>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+                </div>
+                
+                <audio id="audioPlayer"></audio>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
