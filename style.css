@@ -1,141 +1,177 @@
 :root {
-    --primary-color: #2c3e50;
-    --accent-color: #27ae60;
-    --bg-dark: #1a1a1a;
-    --text-light: #ecf0f1;
+    --gold: #c5a059;
+    --bg-dark: #121212;
+    --sidebar-bg: #1e1e1e;
+    --accent-green: #27ae60;
 }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-light);
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at center, #1a2a33 0%, #0a0a0a 100%);
+    background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'), 
+                      linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8));
+    color: white;
     height: 100vh;
     overflow: hidden;
 }
 
-.container {
-    display: flex;
-    height: 100%;
-}
+.container { display: flex; height: 100%; }
 
 /* Sidebar */
 .sidebar {
-    width: 350px;
-    background-color: #222;
-    display: flex;
-    flex-direction: column;
+    width: 320px;
+    background: var(--sidebar-bg);
     border-right: 1px solid #333;
-}
-
-
-.logo {
-    padding: 20px;
-    text-align: center;
-    display: flex; 
-    flex-direction: column;
-    align-items: center; 
-    gap: 10px; 
-}
-
-
-.logo-image {
-    width: 60px; 
-    height: auto; 
-    object-fit: contain; 
-    filter: drop-shadow(0 0 5px rgba(39, 174, 96, 0.5)); 
-}
-
-
-.logo h1 {
-    font-size: 1.2rem;
-    margin: 0;
-    color: var(--accent-color);
-}
-.station-list {
-    flex: 1;
-    overflow-y: auto;
-    padding: 10px;
-}
-
-.station-item {
-    padding: 15px;
-    margin-bottom: 5px;
-    background: #2a2a2a;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.station-item:hover { background: #3a3a3a; }
-.station-item.active { border-left: 4px solid var(--accent-color); background: #333; }
-
-.station-item h4 { margin: 0; font-size: 0.9rem; }
-.station-item p { margin: 5px 0 0; font-size: 0.75rem; color: #888; }
-
-/* Player Area */
-.main-player {
-    flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+    flex-direction: column;
+}
+
+.logo-area { padding: 25px; text-align: center; }
+.top-logo { width: 50px; border: 2px solid var(--gold); padding: 5px; border-radius: 5px; }
+.title { font-size: 1rem; color: var(--accent-green); margin-top: 10px; }
+.title span { color: white; }
+
+.search-box { padding: 0 15px 15px; }
+#searchInput {
+    width: 100%; background: #2a2a2a; border: 1px solid #444;
+    padding: 10px; border-radius: 4px; color: #ccc; outline: none;
+}
+
+.station-list { flex: 1; overflow-y: auto; padding: 10px; }
+.station-item {
+    background: #252525; padding: 15px; margin-bottom: 8px;
+    border-radius: 8px; cursor: pointer; transition: 0.3s;
+    border: 1px solid #333; display: flex; justify-content: space-between;
+}
+.station-item:hover { border-color: var(--gold); background: #2d2d2d; }
+.station-item.active { border-left: 4px solid var(--accent-green); background: #2a2a2a; }
+
+.station-info h4 { margin: 0; font-size: 0.9rem; color: #efefef; }
+.station-info p { margin: 5px 0 0; font-size: 0.7rem; color: #888; }
+.station-icon { color: var(--gold); opacity: 0.7; font-size: 1.2rem; }
+
+/* Main Player Area */
+.content-area {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; position: relative;
+}
+
+.filter-wrapper { position: absolute; top: 30px; left: 30px; }
+.filter-wrapper label { display: block; color: var(--gold); font-size: 0.8rem; margin-bottom: 5px; }
+#categoryFilter {
+    background: #1e1e1e; color: white; border: 1px solid #444;
+    padding: 8px 12px; border-radius: 4px; width: 180px;
 }
 
 .player-card {
-    text-align: center;
-    width: 80%;
-    max-width: 500px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    padding: 50px; border-radius: 20px; text-align: center;
+    width: 350px; border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
+
+.wave-visual { display: flex; justify-content: center; gap: 5px; height: 40px; margin-bottom: 20px; }
+.wave-visual span { width: 4px; background: var(--accent-green); animation: pulse 1s infinite ease-in-out; animation-play-state: paused; }
+.playing .wave-visual span { animation-play-state: running; }
+
+@keyframes pulse { 0%, 100% { height: 10px; } 50% { height: 40px; } }
 
 .play-btn {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: none;
-    background: var(--accent-color);
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    margin: 30px 0;
-    transition: transform 0.2s;
+    width: 80px; height: 80px; border-radius: 50%; border: none;
+    background: var(--accent-green); color: white; font-size: 2rem;
+    cursor: pointer; margin: 25px 0; transition: 0.3s;
 }
+.play-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-.play-btn:hover { transform: scale(1.1); }
+.volume-box { display: flex; align-items: center; gap: 10px; justify-content: center; opacity: 0.7; }
 
-.volume-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
+/* --- Ultra Responsive Mobile Fix --- */
+/* --- Ultra Compact Mobile Player --- */
+/* --- Final Compact Mobile Fix --- */
+/* --- Final Compact & Bottom Fixed Mobile Fix --- */
+/* --- Final Compact Mobile Fix (No Gaps) --- */
+@media screen and (max-width: 768px) {
+    body, html {
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important; /* পুরো স্ক্রিন স্ক্রল হবে না */
+    }
 
-/* Visualizer Animation */
-.visualizer {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    height: 50px;
-    margin-bottom: 20px;
-}
+    .container {
+        display: flex !important;
+        flex-direction: column !important;
+        height: 100vh !important;
+        justify-content: flex-start !important; /* সবকিছু ওপর থেকে শুরু হবে */
+    }
 
-.bar {
-    width: 8px;
-    background: var(--accent-color);
-    border-radius: 4px;
-    animation: bounce 1s infinite alternate;
-    animation-play-state: paused;
-}
+    /* ওপরের স্টেশন লিস্ট সেকশন */
+    .sidebar {
+        width: 100% !important;
+        flex: 1 1 auto !important; /* এটি বাকি খালি জায়গা দখল করবে */
+        overflow-y: auto !important; /* শুধু লিস্ট স্ক্রল হবে */
+        min-height: 0; /* ফ্লেক্সবক্স বাগ ফিক্স */
+        background: #1a1a1a;
+    }
 
-.playing .bar { animation-play-state: running; }
+    /* নিচের প্লেয়ার এরিয়া (প্লেয়ার কার্ড + ফিল্টার) */
+    .content-area {
+        width: 100% !important;
+        background: #111;
+        padding: 0 !important; /* কোনো গ্যাপ থাকবে না */
+        margin: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        flex-shrink: 0 !important; /* এটি ছোট হবে না */
+    }
 
-@keyframes bounce {
-    from { height: 10px; }
-    to { height: 50px; }
-}
+    /* ক্যাটাগরি ফিল্টার - কার্ডের ঠিক ওপরে লেগে থাকবে */
+    .filter-wrapper {
+        width: 100% !important;
+        padding: 8px 0 !important; /* সামান্য প্যাডিং */
+        margin: 0 !important;
+        background: #111;
+        text-align: center;
+        border-top: 1px solid #333;
+    }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .container { flex-direction: column-reverse; }
-    .sidebar { width: 100%; height: 50%; }
+    #categoryFilter {
+        width: 130px !important;
+        height: 28px !important;
+        font-size: 0.75rem !important;
+        margin: 0 auto !important;
+    }
+
+    /* প্লেয়ার কার্ড - একদম কমপ্যাক্ট */
+    .player-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 8px 10px !important; 
+        margin: 0 !important;
+        background: #181818 !important;
+        border-radius: 15px 15px 0 0 !important; /* শুধু ওপরে গোল */
+        border: none;
+        border-top: 2px solid var(--gold);
+    }
+
+    /* ভেতরের এলিমেন্টগুলোর স্পেসিং কমানো */
+    .wave-visual { height: 12px !important; margin-bottom: 2px !important; }
+    #currentName { font-size: 0.85rem !important; margin: 0 !important; }
+    #currentCategory { font-size: 0.6rem !important; margin-bottom: 5px !important; }
+
+    .play-btn {
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 1rem !important;
+        margin: 5px 0 !important;
+    }
+
+    .volume-box {
+        margin-bottom: 8px !important;
+        gap: 5px !important;
+    }
+    #volumeSlider { width: 85px !important; }
 }
