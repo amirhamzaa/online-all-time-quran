@@ -1,5 +1,14 @@
 const Stations = [
     {
+    id: "1.1",
+    name: "إذاعة صور من حياة الصحابة رضوان الله عليهم",
+    radio_url: "https://stream-163.zeno.fm/3bx0fpeq638uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiIzYngwZnBlcTYzOHV2IiwiaG9zdCI6InN0cmVhbS0xNjMuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6IjRycVJ5UWppUm9lV000SzN2SWlUZHciLCJpYXQiOjE3NzU0MDQ0MTksImV4cCI6MTc3NTQwNDQ3OX0.JC6G--CfBo8znJiJVPpQC3-n95QD6irLD_wd7MI0Y10&an-uid=7726930056538200506&dot-uid=0d352204004aa0dc86fe1b54&amb-uid=3750937254716767402&dbm-uid=CAESEKliG53J8BgKNaIqs6Cn_hQ&cto-uid=7805d5b2-ed91-407f-b23f-b598e76f1f63-68caff7a-4244&bsw-uid=8f7c10d5-9945-4732-80c1-d6fee321381a&dyn-uid=4014606778246264528&ttd-uid=614cf3f3-3543-4cca-8507-9141c59fc5b2&aw_0_req_lsid=9377722fe9ba72185489a28c6056a120",
+    name_en: " সৈয়দ ইসমত তোহা || Bangla ",
+    category: "منوعات",
+    category_en: "Others"
+      },
+
+    {
     id: "1",
     name: "إذاعة صور من حياة الصحابة رضوان الله عليهم",
     radio_url: "https://qurango.net/radio/sahabah",
